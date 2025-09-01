@@ -46,3 +46,4 @@ A Chrome extension that fetches sitemap URLs from store.vlinq.co and allows you 
 - **Extension not working?** Make sure all files are in the same folder
 - **No URLs loading?** Check your internet connection
 # vlinq-stores-extension
+# vlinq-stores-extension

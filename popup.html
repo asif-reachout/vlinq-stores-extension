@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>vlinq Stores</title>
+    <style>
+      body { 
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; 
+        padding: 0; 
+        width: 420px; 
+        box-sizing: border-box; 
+        background: #ffffff;
+        margin: 0;
+      }
+      
+      .header {
+        background: #000000;
+        color: white;
+        padding: 16px;
+        text-align: center;
+        border-bottom: 2px solid #f0f0f0;
+      }
+      
+      .header h3 { 
+        margin: 0 0 6px 0; 
+        font-size: 16px;
+        font-weight: 600;
+      }
+      
+      .total-count {
+        font-size: 13px;
+        opacity: 0.8;
+        font-weight: 400;
+      }
+      
+      .content {
+        padding: 16px;
+      }
+      
+      .search-container {
+        margin-bottom: 14px;
+      }
+      
+      input[type="text"] { 
+        width: 100%; 
+        padding: 10px 14px; 
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        font-size: 14px;
+        transition: border-color 0.2s ease;
+        box-sizing: border-box;
+      }
+      
+      input[type="text"]:focus {
+        outline: none;
+        border-color: #000000;
+      }
+      
+      .fetch-button { 
+        width: 100%;
+        padding: 10px 16px; 
+        margin-bottom: 16px; 
+        cursor: pointer;
+        background: #000000;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        transition: background-color 0.2s ease;
+      }
+      
+      .fetch-button:hover {
+        background: #333333;
+      }
+      
+      .fetch-button:disabled {
+        background: #666666;
+        cursor: not-allowed;
+      }
+      
+      .urls-container {
+        background: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      }
+      
+      ul { 
+        list-style: none; 
+        padding: 0; 
+        margin: 0; 
+        max-height: 320px; 
+        overflow-y: auto;
+      }
+      
+      /* Custom scrollbar for webkit browsers */
+      ul::-webkit-scrollbar {
+        width: 6px;
+      }
+      
+      ul::-webkit-scrollbar-track {
+        background: #f5f5f5;
+      }
+      
+      ul::-webkit-scrollbar-thumb {
+        background: #cccccc;
+        border-radius: 3px;
+      }
+      
+      ul::-webkit-scrollbar-thumb:hover {
+        background: #999999;
+      }
+      
+      .url-item { 
+        border-bottom: 1px solid #f0f0f0; 
+        transition: all 0.2s ease;
+      }
+      
+      .url-item:last-child {
+        border-bottom: none;
+      }
+      
+      .url-item:hover {
+        background-color: #f8f8f8;
+      }
+      
+      .url-container {
+        display: flex;
+        align-items: center;
+        padding: 14px 16px;
+        cursor: pointer;
+        gap: 12px;
+      }
+      
+      .url-text {
+        flex: 1;
+        font-size: 13px;
+        line-height: 1.4;
+        color: #000000;
+        word-break: break-all;
+        min-width: 0; /* Allow text to shrink */
+      }
+      
+      .copy-btn {
+        background: none;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        padding: 6px 8px;
+        cursor: pointer;
+        font-size: 12px;
+        color: #666666;
+        transition: all 0.2s ease;
+        flex-shrink: 0;
+        min-width: 32px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .copy-btn:hover {
+        background-color: #f0f0f0;
+        border-color: #cccccc;
+      }
+      
+      .load-more-container {
+        padding: 12px 16px;
+        text-align: center;
+        border-top: 1px solid #f0f0f0;
+        background-color: #fafafa;
+      }
+      
+      .load-more-btn {
+        background: #000000;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 16px;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: 500;
+        transition: background-color 0.2s ease;
+      }
+      
+      .load-more-btn:hover {
+        background: #333333;
+      }
+      
+      .empty-state {
+        text-align: center;
+        padding: 32px 16px;
+        color: #666666;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h3>vlinq Stores</h3>
+      <div class="total-count" id="totalCount">Total URLs: 0</div>
+    </div>
+
+    <div class="content">
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search URLs..." />
+      </div>
+
+      <button id="fetchBtn" class="fetch-button">Fetch vlinq Stores</button>
+
+      <div class="urls-container">
+        <ul id="urlList">
+          <li class="empty-state">Click "Fetch vlinq Stores" to load URLs</li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
